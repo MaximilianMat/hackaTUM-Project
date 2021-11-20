@@ -1,17 +1,30 @@
 {
-    "name": "Extension Demo",
+    "name": "Getting Started Example",
+    "description": "Build an Extension!",
     "version": "1.0",
-    "description": "Build an Basic Extension!",
+    "manifest_version": 3,
+    "options_page": "options.html",
+    "background": {
+        "service_worker": "background.js"
+    },
     "permissions": [
-        "activeTab"
+        "storage",
+        "activeTab",
+        "scripting"
     ],
-    "browser_action": {
+    "action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "16": "img/icon16.png",
-            "32": "img/icon32.png",
-            "48": "img/icon48.png"
+            "16": "/images/get_started16.png",
+            "32": "/images/get_started32.png",
+            "48": "/images/get_started48.png",
+            "128": "/images/get_started128.png"
         }
     },
-    "manifest_version": 2
+    "icons": {
+        "16": "/images/get_started16.png",
+        "32": "/images/get_started32.png",
+        "48": "/images/get_started48.png",
+        "128": "/images/get_started128.png"
+    }
 }
