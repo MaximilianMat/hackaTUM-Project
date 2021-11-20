@@ -2,10 +2,10 @@ let button = document.getElementById("start");
 
 button.addEventListener("click", async () => {
 
-    var socket = io("http://localhost:3000/", {
+    var socket = io("https://localhost:8080/", {
         withCredentials: true,
         extraHeaders: {
-            "my-custom-header": "abcd"
+             'Access-Control-Allow-Origin': 'https://localhost'
         }
     });
 
