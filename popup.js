@@ -5,14 +5,13 @@ button.addEventListener("click", async () => {
     var socket = io("http://localhost:3000/", {
         withCredentials: true,
         extraHeaders: {
-             'Access-Control-Allow-Origin': 'http://localhost:3000'
+            'Access-Control-Allow-Origin': 'http://localhost:3000'
         }
     });
 
     socket.on("connect", () => {
-        console.log(hi);
+        socket.emit('ready', '');
     });
-    socket.emit('ready', '');
 
     socket.on('execute function', function (msg) {
         socket.emit('execution finished', eval(msg))
