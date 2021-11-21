@@ -2,13 +2,14 @@ const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http, {
     cors: {
-        origin: "https://localhost",
+        origin: "chrome-extension://knonhcnhggahhcflglbbljpjfflmpcoa",
         methods: ["GET", "POST"],
-        allowedHeaders: ["my-custom-header"],
+        transports: ['websocket', 'polling'],
         credentials: true
-    }
+    },
+    allowEIO3: true
 });
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 
 io.on('connection', (socket) => {
@@ -19,7 +20,6 @@ io.on('connection', (socket) => {
         console.log(res);
     });
 });
-
 
 
 http.listen(port, () => {

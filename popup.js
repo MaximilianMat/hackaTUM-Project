@@ -2,14 +2,13 @@ let button = document.getElementById("start");
 
 button.addEventListener("click", async () => {
 
-    var socket = io("https://localhost:8080/", {
+    var socket = io("http://localhost:3000/", {
         withCredentials: true,
         extraHeaders: {
-             'Access-Control-Allow-Origin': 'https://localhost'
+             'Access-Control-Allow-Origin': 'http://localhost:3000'
         }
     });
 
-    var button = document.getElementById('start');
     socket.on("connect", () => {
         console.log(hi);
     });
@@ -18,7 +17,7 @@ button.addEventListener("click", async () => {
     socket.on('execute function', function (msg) {
         socket.emit('execution finished', eval(msg))
     });
-    button.textContent = "Starting..."
+    button.textContent = "Connecting..."
     button.style = "background-color: grey"
     //connect
 });
